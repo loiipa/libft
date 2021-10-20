@@ -6,11 +6,11 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 13:44:40 by cjang             #+#    #+#             */
-/*   Updated: 2021/01/01 18:19:54 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:57:13 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= 48 && c <= 57)
 		return (1);

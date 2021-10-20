@@ -6,11 +6,11 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 13:44:40 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/26 18:51:39 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:48:37 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 20:04:52 by cjang             #+#    #+#             */
-/*   Updated: 2021/01/02 22:27:01 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:55:13 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_calloc(size_t count, size_t size)
 	size_t			n;
 
 	n = count * size;
-	if (!(mem = malloc(n)))
+	mem = malloc(n);
+	if (!mem)
 		return (NULL);
 	while (n > 0)
 		mem[--n] = 0;

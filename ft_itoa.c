@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/29 15:16:57 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/29 19:08:40 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:56:33 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	check_minus(int n, int *i, char *alp)
 	return (n * -1);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		digit;
 	int		i;
@@ -64,7 +64,8 @@ char		*ft_itoa(int n)
 
 	i = 0;
 	len = check_len(n);
-	if (!(alp = (char *)malloc(len + 1)))
+	alp = (char *)malloc(len + 1);
+	if (!alp)
 		return (NULL);
 	if (n < 0)
 		n = check_minus(n, &i, alp);

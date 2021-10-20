@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 02:05:28 by cjang             #+#    #+#             */
-/*   Updated: 2021/01/02 22:11:21 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:55:40 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strdup(const char *s1)
 	len = 0;
 	while (s1[len])
 		len++;
-	if (!(cp = (char *)malloc(len + 1)))
+	cp = (char *)malloc(len + 1);
+	if (!cp)
 		return (NULL);
 	while (i < len + 1)
 	{

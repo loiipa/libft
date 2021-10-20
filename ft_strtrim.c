@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 20:33:51 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/28 21:59:50 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:54:47 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	n = ft_strlen(s1);
 	while (n > 1 && ft_strrchr(set, s1[n - 1]))
 		n--;
-	if (!(trim = (char *)malloc(n + 1)))
+	trim = (char *)malloc(n + 1);
+	if (!trim)
 		return (NULL);
 	ft_strlcpy(trim, s1, n + 1);
 	return (trim);

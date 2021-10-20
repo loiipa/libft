@@ -6,13 +6,13 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 19:10:40 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/26 00:11:17 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:44:24 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int					sign;
 	unsigned long long	number;

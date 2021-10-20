@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/01 22:27:49 by cjang             #+#    #+#             */
-/*   Updated: 2021/01/01 22:53:25 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:50:21 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst)
 		return (NULL);
-	if (!(front = ft_lstnew(f(lst->content))))
+	front = ft_lstnew(f(lst->content));
+	if (!front)
 		return (NULL);
 	lst = lst->next;
 	tmp = front;
 	while (lst)
 	{
-		if (!(tmp->next = ft_lstnew(f(lst->content))))
+		tmp->next = ft_lstnew(f(lst->content));
+		if (!tmp->next)
 		{
 			ft_lstclear(&front, del);
 			return (NULL);

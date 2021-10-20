@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:04:52 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/29 02:21:32 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 16:14:57 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,23 @@ static char	*word_maker(char const *s, char c, size_t *i)
 		*i += 1;
 	while (!find_end(s, c, *i + size))
 		size++;
-	if (!(word = (char *)malloc(size + 2)))
+	word = (char *)malloc(size + 2);
+	if (!word)
 		return (NULL);
 	ft_strlcpy(word, &s[*i], size + 2);
 	*i = *i + size + 1;
 	return (word);
 }
 
-static void	free_book(char **book, size_t index)
+static char	free_book(char **book, size_t index)
 {
 	while (index > 0)
 		free(book[--index]);
 	free(book);
+	return (NULL);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**book;
 	size_t	i;
@@ -71,15 +73,16 @@ char		**ft_split(char const *s, char c)
 	while (s[i])
 		if (find_end(s, c, i++))
 			num++;
-	if (!(book = (char **)malloc(sizeof(char *) * (num + 1))))
+	book = (char **)malloc(sizeof(char *) * (num + 1));
+	if (!book)
 		return (NULL);
 	i = 0;
 	while (index < num)
-		if (!(book[index++] = word_maker(s, c, &i)))
-		{
-			free_book(book, index);
-			return (NULL);
-		}
+	{
+		book[index] = word_maker(s, c, &i);
+		if (!book[index++])
+			return (free_book(book, index));
+	}
 	book[num] = NULL;
 	return (book);
 }

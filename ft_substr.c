@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 03:26:17 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/28 15:36:16 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:53:55 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	s_len = ft_strlen(s);
-	if (!(sub = malloc(len + 1)))
+	sub = malloc(len + 1);
+	if (!sub)
 		return (NULL);
 	if (s_len <= start)
 	{

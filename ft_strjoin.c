@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 17:08:58 by cjang             #+#    #+#             */
-/*   Updated: 2020/12/28 22:05:24 by cjang            ###   ########.fr       */
+/*   Updated: 2021/07/16 15:46:56 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len[0] = ft_strlen(s1);
 	len[1] = ft_strlen(s2);
-	if (!(s1s2 = (char *)malloc(len[0] + len[1] + 1)))
+	s1s2 = (char *)malloc(len[0] + len[1] + 1);
+	if (!s1s2)
 		return (NULL);
 	while (*s1)
 		s1s2[i++] = *s1++;

@@ -6,7 +6,7 @@
 /*   By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 22:04:52 by cjang             #+#    #+#             */
-/*   Updated: 2021/07/16 16:14:57 by cjang            ###   ########.fr       */
+/*   Updated: 2021/10/27 16:32:15 by cjang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static char	*word_maker(char const *s, char c, size_t *i)
 	return (word);
 }
 
-static char	free_book(char **book, size_t index)
+static char	**free_book(char **book, size_t index)
 {
 	while (index > 0)
 		free(book[--index]);

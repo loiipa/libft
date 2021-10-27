@@ -6,13 +6,15 @@
 #    By: cjang <cjang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/24 17:30:16 by cjang             #+#    #+#              #
-#    Updated: 2021/01/02 16:11:52 by cjang            ###   ########.fr        #
+#    Updated: 2021/10/27 16:31:29 by cjang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = libft.a
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
+
 SRCS =	ft_memset.c		ft_bzero.c		ft_memcpy.c		ft_memccpy.c	\
 		ft_memmove.c	ft_memchr.c		ft_memcmp.c		ft_strlen.c		\
 		ft_strlcpy.c	ft_strlcat.c	ft_strchr.c		ft_strrchr.c	\
@@ -26,25 +28,32 @@ SRCS =	ft_memset.c		ft_bzero.c		ft_memcpy.c		ft_memccpy.c	\
 SRCS_BONUS =	ft_lstnew.c		ft_lstadd_front.c		ft_lstsize.c	\
 				ft_lstlast.c	ft_lstadd_back.c		ft_lstdelone.c	\
 				ft_lstclear.c	ft_lstiter.c			ft_lstmap.c
+
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
+ifdef BONUS_INCLUDE
+	OBJS_FILE = $(OBJS) $(OBJS_BONUS)
+else
+	OBJS_FILE = $(OBJS)
+endif
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS_FILE)
 	ar rc $@ $^
-
-bonus: $(OBJS) $(OBJS_BONUS)
-	ar rc $(NAME) $^
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+bonus:
+	@make BONUS_INCLUDE=1 all
+
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
